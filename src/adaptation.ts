@@ -1,18 +1,13 @@
 import { CompletionContext, CompletionResult } from '@codemirror/autocomplete';
 import { ChannelDictionary, CommandDictionary, FswCommand, ParameterDictionary } from '@nasa-jpl/aerie-ampcs';
 import { ISequenceAdaptation } from './sharedTypes.js';
+import type { IndentContext } from '@codemirror/language';
 
 function identityTransform(contents: string): Promise<string> {
   return Promise.resolve(contents);
 }
 
 export const SampleAdaptation: ISequenceAdaptation = {
-  inputFormat: {
-    linter: undefined,
-    name: 'languageName',
-    toInputFormat: identityTransform,
-  },
-  outputFormat: [],
   autoComplete: function (
     _channelDictionary: ChannelDictionary | null,
     commandDictionary: CommandDictionary | null,
@@ -34,4 +29,14 @@ export const SampleAdaptation: ISequenceAdaptation = {
       };
     };
   },
+  autoIndent: () => (context: IndentContext, pos: number): number | null | undefined => {
+    /** return the number of characters to auto indent */
+    return null;
+  },
+  inputFormat: {
+    linter: undefined,
+    name: 'languageName',
+    toInputFormat: identityTransform,
+  },
+  outputFormat: [],
 };
