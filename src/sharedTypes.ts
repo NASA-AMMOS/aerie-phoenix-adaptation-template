@@ -2,26 +2,18 @@
  * These are copy-pasted from aerie-ui, they will need manual update until we publish those types.
  */
 
-import type {
-  CompletionContext,
-  CompletionResult,
-} from "@codemirror/autocomplete";
-import type { IndentContext } from "@codemirror/language";
-import type { Diagnostic } from "@codemirror/lint";
-import type { SyntaxNode } from "@lezer/common";
-import type { EditorView } from "codemirror";
-import {
-  ChannelDictionary,
-  CommandDictionary,
-  FswCommandArgument,
-  ParameterDictionary,
-} from "@nasa-jpl/aerie-ampcs";
+import type { CompletionContext, CompletionResult } from '@codemirror/autocomplete';
+import type { IndentContext } from '@codemirror/language';
+import type { Diagnostic } from '@codemirror/lint';
+import type { SyntaxNode } from '@lezer/common';
+import type { EditorView } from 'codemirror';
+import { ChannelDictionary, CommandDictionary, FswCommandArgument, ParameterDictionary } from '@nasa-jpl/aerie-ampcs';
 
 export enum GlobalTypes {
-  int = "int",
-  flt = "flt",
-  str = "str",
-  uint = "uint",
+  int = 'int',
+  flt = 'flt',
+  str = 'str',
+  uint = 'uint',
 }
 
 export type GlobalType = {
@@ -49,10 +41,7 @@ export interface ISequenceAdaptation {
     commandDictionary: CommandDictionary | null,
     parameterDictionaries: ParameterDictionary[],
   ) => (context: CompletionContext) => CompletionResult | null;
-  autoIndent?: () => (
-    context: IndentContext,
-    pos: number,
-  ) => number | null | undefined;
+  autoIndent?: () => (context: IndentContext, pos: number) => number | null | undefined;
   globals?: GlobalType[];
   inputFormat: {
     linter?: (

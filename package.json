@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "npx esbuild --bundle src/adaptation.ts --outdir=dist",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
+    "format:check": "prettier --check src",
+    "format:write": "prettier --write src",
     "test": "vitest run"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NASA-AMMOS/aerie-phoenix-adaptation-template.git"
@@ -28,7 +29,9 @@
   "homepage": "https://github.com/NASA-AMMOS/aerie-phoenix-adaptation-template#readme",
   "dependencies": {
     "@nasa-jpl/aerie-ampcs": "^1.0.6",
-    "codemirror": "^6.0.1",
+    "codemirror": "^6.0.1"
+  },
+  "devDependencies": {
     "esbuild": "^0.24.0",
     "prettier": "^3.3.3"
   }
